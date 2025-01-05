@@ -78,11 +78,14 @@ function PostList({ isAdmin, setIsAdmin }) {
   };
 
   return (
-    <div className="flex container text-sm mx-auto p-4 space-x-4">
-      <div className="w-1/4 overflow-y-auto h-screen">
-        {" "}
-        {/* Sidebar yang dapat discroll */}
-        <img className="h-64 w-96 object-cover" src="/pep.jpg" alt="jpg" />
+    <div className="flex flex-col md:flex-row container text-sm mx-auto p-4 space-y-4 md:space-x-4">
+      <div className="w-full md:w-1/4 overflow-y-auto h-auto md:h-screen">
+        {/* Sidebar */}
+        <img
+          className="h-64 w-96 object-cover"
+          src="/bluecadar.jpg"
+          alt="jpg"
+        />
         <h1 className="text-lg font-semibold text-gray-800 font-poppins text-center mb-6">
           Srideviyanti Blog
         </h1>
@@ -130,14 +133,14 @@ function PostList({ isAdmin, setIsAdmin }) {
           </div>
         )}
         <h2 className="text-2xl font-semibold text-center mb-6 mt-4">Posts</h2>
-        <div className="space-y-4  text-sm">
+        <div className="space-y-4 text-sm">
           {posts.map((post) => (
             <div
               key={post.id}
-              className="bg-white  p-2 border rounded-lg shadow-md cursor-pointer hover:bg-gray-100"
+              className="bg-white p-2 border rounded-lg shadow-md cursor-pointer hover:bg-gray-100"
               onClick={() => togglePostContent(post.id)}
             >
-              <h3 className=" text-sm font-semibold text-blue-500">
+              <h3 className="text-sm font-semibold text-blue-500">
                 {post.title}
               </h3>
             </div>
@@ -145,11 +148,10 @@ function PostList({ isAdmin, setIsAdmin }) {
         </div>
       </div>
 
-      <div className="w-3/4 overflow-y-auto h-screen">
-        {" "}
-        {/* Layout kanan yang dapat discroll */}
+      <div className="w-full md:w-3/4 overflow-y-auto h-auto md:h-screen">
+        {/* Konten utama */}
         {expandedPostId ? (
-          <div className="bg-white p-6 border rounded-lg shadow-md text-center ">
+          <div className="bg-white p-6 border rounded-lg shadow-md text-center">
             <h3 className="text-2xl font-bold text-blue-500 mb-4">
               {posts.find((post) => post.id === expandedPostId)?.title}
             </h3>
